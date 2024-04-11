@@ -13,6 +13,7 @@ import com.example.usersAdmin.service.UserService;
 
 @RestController
 @RequestMapping(value = "/v1/users")
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -53,7 +54,7 @@ public class UserController {
             return ResponseEntity.badRequest().body(new String(e.getMessage()));
         }
     }
-
+    
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<String> deleteByID(@PathVariable long id) {
         try {
