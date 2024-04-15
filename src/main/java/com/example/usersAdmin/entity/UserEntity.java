@@ -34,10 +34,11 @@ public class UserEntity {
 
     public UserEntity() {
     }
+
     public UserEntity(UserDto userDto) {
         BeanUtils.copyProperties(userDto, this);
     }
-    
+
     public Long getId() {
         return this.id;
     }
@@ -80,18 +81,18 @@ public class UserEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,name);
+        return Objects.hash(id, name);
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (o == null || getClass()!= o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         UserEntity userEntity = (UserEntity) o;
         return Objects.equals(id, userEntity.id);
     }
-    
+
 }
