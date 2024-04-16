@@ -25,7 +25,8 @@ public class RecursoService {
     }
 
     public void delete(Long id) {
-        repository.findById(id).orElseThrow();
+        var recurso = repository.findById(id).orElseThrow();
+        repository.delete(recurso);
     }
 
     public RecursoDto findById(Long id) {
