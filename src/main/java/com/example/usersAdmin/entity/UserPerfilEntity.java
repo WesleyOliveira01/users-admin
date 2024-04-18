@@ -2,41 +2,40 @@ package com.example.usersAdmin.entity;
 
 import org.springframework.beans.BeanUtils;
 
-import com.example.usersAdmin.dto.RecursoDto;
+import com.example.usersAdmin.dto.UserPerfilDto;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_recurso")
+@Table(name = "tb_user_perfil")
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class RecursoEntity {
-
+public class UserPerfilEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
-    @Column(nullable = false)
-    private String key;
+    @OneToOne
+    @JoinColumn(name = "perfil_id")
+    private PerfilEntity perfil;
 
-    public RecursoEntity(RecursoDto recursoDto) {
-        BeanUtils.copyProperties(recursoDto, this);
+    public UserPerfilEntity(UserPerfilDto userPerfilDto) {
+        BeanUtils.copyProperties(userPerfilDto, this);
     }
-
 }

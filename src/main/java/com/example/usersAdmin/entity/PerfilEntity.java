@@ -2,7 +2,7 @@ package com.example.usersAdmin.entity;
 
 import org.springframework.beans.BeanUtils;
 
-import com.example.usersAdmin.dto.UserDto;
+import com.example.usersAdmin.dto.PerfilDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,31 +17,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_perfil")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class UserEntity {
+public class PerfilEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column(nullable = false)
-    private String name;
+    private String descricao;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false, unique = true)
-    private String login;
-
-    @Column(nullable = false)
-    private String password;
-
-    public UserEntity(UserDto userDto) {
-        BeanUtils.copyProperties(userDto, this);
+    public PerfilEntity(PerfilDto perfilDto) {
+        BeanUtils.copyProperties(perfilDto, this);
     }
 
 }

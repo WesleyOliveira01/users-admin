@@ -2,7 +2,7 @@ package com.example.usersAdmin.dto;
 
 import org.springframework.beans.BeanUtils;
 
-import com.example.usersAdmin.entity.UserEntity;
+import com.example.usersAdmin.entity.PerfilEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,14 +13,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-    private Long id;
-    private String name;
-    private String email;
-    private String login;
-    private String password;
+public class PerfilDto {
 
-    public UserDto(UserEntity userEntity) {
-        BeanUtils.copyProperties(userEntity, this);
+    private Long id;
+    private String descricao;
+
+    public PerfilDto(PerfilEntity perfilEntity) {
+        BeanUtils.copyProperties(perfilEntity, this);
     }
 }
