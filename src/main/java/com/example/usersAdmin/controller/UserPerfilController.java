@@ -51,7 +51,7 @@ public class UserPerfilController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserPerfilDto> update(@PathVariable long id, UserPerfilDto userPerfilDto) {
+    public ResponseEntity<UserPerfilDto> update(@PathVariable long id, @RequestBody UserPerfilDto userPerfilDto) {
         try {
             UserPerfilDto updatedUserPerfil = service.update(id, userPerfilDto);
             return ResponseEntity.ok(updatedUserPerfil);
