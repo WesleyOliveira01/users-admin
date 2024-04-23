@@ -25,8 +25,9 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class PerfilEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String descricao;
 
